@@ -33,6 +33,7 @@
         th {
             background-color: #D4E6D4; /* 연한 초록색 헤더 배경 */
             color: #495057;
+            text-align: center;
         }
         a {
             color: #40916C;
