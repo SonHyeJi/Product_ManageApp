@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org.//DTD Mapper 3.0//ER" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssg.product_manageapp.mapper.ProductMapper">
+
+    <insert id="insert">
+        insert into products(name,price,stock_quantity) values (#{name}, #{price}, #{stock_quantity})
+    </insert>
+
+    <select id="listAll" resultType="com.ssg.product_manageapp.domain.ProductVO">
+        select * from products
+    </select>
+
+    <select id="listOne" resultType="com.ssg.product_manageapp.domain.ProductVO">
+        select * from products where id = #{id}
+    </select>
+
+    <update id="modify">
+        update products set name=#{name},price=#{price},stock_quantity=#{stock_quantity} where id=#{id}
+    </update>
+
+    <delete id="delete">
+        delete from products where id=#{id}
+    </delete>
+
+    <select id="searchByName" resultType="com.ssg.product_manageapp.domain.ProductVO">
+        SELECT * FROM products WHERE name LIKE CONCAT('%', #{searchString}, '%')
+    </select>
+
+</mapper>
